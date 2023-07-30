@@ -91,8 +91,6 @@ const checkFrequency = (map) => {
 
 
 
-
-
 const obj1 = { foo: "bar", baz: 42 };
 console.log(Object.entries(obj1)); // [ ['foo', 'bar'], ['baz', 42] ]
 
