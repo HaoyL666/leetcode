@@ -28,11 +28,28 @@
  */
 
 
+
+
+/**
+ * Hash Set
+ * Time O(N) | Space O(N)
+ * https://leetcode.com/problems/contains-duplicate/
+ * @param {number[]} nums
+ * @return {boolean}
+ */
 const containsDuplicate = function (nums) {
     const set = new Set(nums); /* Time O(N) | Space O(N) */
     return set.size !== nums.length;
 };
 
+
+/**
+ * Brute Force - Linear Search
+ * Time O(N^2) | Space O(1)
+ * https://leetcode.com/problems/contains-duplicate/
+ * @param {number[]} nums
+ * @return {boolean}
+ */
 const containsDuplicate2 = function (nums) {
     for (let i = 0; i < nums.length; i++) { /* Time O(N^2) | Space O(1) */
         for (let j = i + 1; j < nums.length; j++) {
@@ -42,6 +59,14 @@ const containsDuplicate2 = function (nums) {
     return false;
 }
 
+
+/**
+ * Sort - HeapSort Space O(1) | QuickSort Space O(log(N))
+ * Time O(N * log(N)) | Space O(1)
+ * https://leetcode.com/problems/contains-duplicate/
+ * @param {number[]} nums
+ * @return {boolean}
+ */
 const containsDuplicate3 = function (nums) {
     nums.sort((a, b) => a - b);/* Time O(N * log(N)) | Space O(1 || log(N)) */
 
