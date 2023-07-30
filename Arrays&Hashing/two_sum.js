@@ -78,3 +78,7 @@ const getSum = (nums, target, map) => {
 
     return [-1, -1];
 }
+
+
+// Array.indexOf()
+// indexOf() – also runs in linear time. It iterates through the internal array and checks each element one by one, so the time complexity for this operation always requires O(n) time.
