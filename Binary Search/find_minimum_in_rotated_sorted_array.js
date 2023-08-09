@@ -41,14 +41,11 @@ var findMin = function (nums) {
         const guess = nums[mid];
         const [leftNum, rightNum] = [nums[left], nums[right]];
 
-        const isTarget = leftNum < rightNum;
-        if (isTarget) return leftNum;
+        if (leftNum < rightNum) return leftNum;
 
-        const isTargetGreater = leftNum <= guess;
-        if (isTargetGreater) left = mid + 1;
+        if (leftNum <= guess) left = mid + 1;
 
-        const isTargetLess = guess < leftNum;
-        if (isTargetLess) right = mid;
+        if (guess < leftNum) right = mid;
     }
 
     return nums[left];
