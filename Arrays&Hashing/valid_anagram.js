@@ -31,8 +31,7 @@
  * @return {boolean}
  */
 const isAnagram = function (s, t) {
-    const isEqual = s.length === t.length;
-    if (!isEqual) return false;
+    if (!s.length === t.length) return false;
 
     return reorder(s) === reorder(t); /* Time O(N * logN) | Space O(N) */
 };
@@ -53,8 +52,8 @@ const reorder = (str) => str
  * @return {boolean}
  */
 var isAnagram2 = (s, t, map = new Map()) => {
-    const isEqual = s.length === t.length;
-    if (!isEqual) return false;
+
+    if (!s.length === t.length) return false;
 
     addFrequency(s, map);      /* Time O(N) | Space O(1) */
     subtractFrequency(t, map); /* Time O(N) | Space O(1) */
@@ -82,8 +81,7 @@ const subtractFrequency = (str, map) => {
 
 const checkFrequency = (map) => {
     for (const [char, count] of map) {/* Time O(N) */
-        const isEmpty = count === 0;
-        if (!isEmpty) return false;
+        if (!count === 0) return false;
     }
 
     return true;
@@ -240,6 +238,8 @@ Map automatically updates its size and get the easiest.
 console.log(map.size);
 In object, the size needs to be calculated manually with the help Object.keys().
 console.log(Object.keys(obj).length);
+
+
 Hence we can see Map is having better performance and less to write code structure which gives it an edge over Object. However, there are some scenarios which requires object to be used. Let us see.
 WHEN AND WHERE TO USE OBJECT:
 
@@ -251,7 +251,6 @@ Although Map tends to have more advantages over objects, at the end the day it d
 However, of all the advantages of map over object, map cannot replace object in JavaScript because Object is much more than a hash table. It shouldn’t be used just for the purpose of hashing if there exists another choice.
 
 Map() is much better because it:
-
 1. Provides get, set, has, and delete methods.
 2. Accepts any type for the keys instead of just strings.
 3. Provides an iterator for easy for-of usage and maintains the order of results.
