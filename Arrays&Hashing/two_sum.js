@@ -35,10 +35,7 @@ var twoSum = (nums, target) => {
         const complement = target - nums[curr];
 
         for (let next = (curr + 1); next < nums.length; next++) {/* Time O(N) */
-            const num = nums[next];
-
-            const isTarget = num === complement
-            if (isTarget) return [curr, next];
+            if (nums[next] === complement) return [curr, next];
         }
     }
 
@@ -60,20 +57,19 @@ var twoSum = (nums, target) => {
 }
 
 const getMap = (nums, map = new Map()) => {
-    for (let index = 0; index < nums.length; index++) {/* Time O(N) */
-        map.set(nums[index], index);                        /* Space O(N) */
+    for (let i = 0; i < nums.length; i++) {/* Time O(N) */
+        map.set(nums[i], i);                        /* Space O(N) */
     }
 
     return map
 }
 
 const getSum = (nums, target, map) => {
-    for (let index = 0; index < nums.length; index++) {/* Time O(N) */
-        const complement = target - nums[index];
-        const sumIndex = map.get(complement);
+    for (let j = 0; j < nums.length; j++) {/* Time O(N) */
+        const complement = target - nums[j];
+        const index = map.get(complement);
 
-        const isTarget = map.has(complement) && (map.get(complement) !== index)
-        if (isTarget) return [index, sumIndex]
+        if (map.has(complement) && (index !== j)) return [j, index]
     }
 
     return [-1, -1];
