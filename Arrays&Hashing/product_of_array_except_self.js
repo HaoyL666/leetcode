@@ -38,7 +38,6 @@ function productExceptSelf(nums) {
         postfix *= nums[i + 1];
         result[i] *= postfix;
     }
-
     return result;
 }
 
