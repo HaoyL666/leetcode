@@ -22,7 +22,7 @@ function ListNode(val) {
 
 var mergeTwoLists = function (list1, list2) {
     // dummy nodes to aviod edge cases
-    let sentinel = tail = new ListNode();
+    let sentinel = tail = new ListNode(10000);
 
     while (list1 && list2) {/* Time O(N + M) */
 
