@@ -30,3 +30,19 @@ var findDuplicate = function (nums) {
     return -1;
 }
 
+
+/**
+ * https://leetcode.com/problems/find-the-duplicate-number/
+ * Time O(N) | Space O(N)
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findDuplicate = function (nums, seen = new Set()) {
+    for (const num of nums) {/* Time O(N) */
+        if (seen.has(num)) return num;
+
+        seen.add(num);              /* Space O(N) */
+    }
+
+    return -1;
+}
