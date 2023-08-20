@@ -23,6 +23,7 @@
 // Since an empty string reads the same forward and backward, it is a palindrome.
 
 /**
+ * Time O(N) | Space O(N)
  * @param {string} s
  * @return {boolean}
  */
@@ -70,3 +71,30 @@ var isPalindrome = function (s) {
     }
     return true;
 };
+
+
+
+// test() method
+// The test() method of RegExp instances executes a search with this regular expression for a match between a regular expression and a specified string. Returns true if there is a match; false otherwise.
+
+// JavaScript RegExp objects are stateful when they have the global or sticky flags set (e.g., /foo/g or /foo/y). They store a lastIndex from the previous match. Using this internally, test() can be used to iterate over multiple matches in a string of text (with capture groups).
+
+const str = 'table football';
+
+const regex = new RegExp('foo*');
+const globalRegex = new RegExp('foo*', 'g');
+
+console.log(regex.test(str));
+// Expected output: true
+
+console.log(globalRegex.lastIndex);
+// Expected output: 0
+
+console.log(globalRegex.test(str));
+// Expected output: true
+
+console.log(globalRegex.lastIndex);
+// Expected output: 9
+
+console.log(globalRegex.test(str));
+// Expected output: false
