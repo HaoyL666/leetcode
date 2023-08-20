@@ -62,6 +62,8 @@ var longestConsecutive = (nums, maxScore = 0) => {
     for (const num of [...numSet]) {    /* Time O(N) */
         const prevNum = num - 1;
 
+        //if prevNum is in the set, then we know that the current num is not the start of a sequence
+        //if we don't check this, then we will end up with a O(N^2) solution
         if (numSet.has(prevNum)) continue;/* Time O(N) */
 
         let [currNum, score] = [num, 1];
