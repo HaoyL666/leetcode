@@ -9,16 +9,16 @@
 
 
 // Example 1:
-// Input: s = "()"
-// Output: true
+Input: s = "()"
+Output: true
 
 // Example 2:
-// Input: s = "()[]{}"
-// Output: true
+Input: s = "()[]{}"
+Output: true
 
 // Example 3:
-// Input: s = "(]"
-// Output: false
+Input: s = "(]"
+Output: false
 
 /**
  * Time O(N) | Space O(N)
@@ -34,9 +34,9 @@ var isValid = (s, stack = []) => {
     };
 
     for (const char of s) {/* Time O(N) */
-        if (!char in map) { stack.push(char); continue; }/* Space O(N) */
+        if (!char in cache) { stack.push(char); continue; }/* Space O(N) */
 
-        if (stack[stack.length - 1] === map[char]) { stack.pop(); continue; }
+        if (stack[stack.length - 1] === cache[char]) { stack.pop(); continue; }
 
         return false;
     }
@@ -45,21 +45,21 @@ var isValid = (s, stack = []) => {
 };
 
 
-// // ordinary for loop
-// let str = "Buzz";
-// for (let i = 0; i < str.length; i++) {
-//   console.log(str[i]);
-// }
+// ordinary for loop
+let str = "Buzz";
+for (let i = 0; i < str.length; i++) {
+    console.log(str[i]);
+}
 
-// // for... in
-// for (let i in str) {
-//     console.log(str[i]);
-// }
+// for... in
+for (let i in str) {
+    console.log(str[i]);
+}
 
-// // for ... of ...
-// for (let char of "Hello") {
-//     console.log(char);
-// }
+// for ... of ...
+for (let char of "Hello") {
+    console.log(char);
+}
 
 
 // ! in operator 
