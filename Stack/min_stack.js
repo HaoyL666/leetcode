@@ -1,3 +1,4 @@
+/* 155. Min Stack */
 
 // Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
 
@@ -24,7 +25,7 @@ class MinStack {
     /**
      * @constructor
      */
-    constructor () {
+    constructor() {
         this.stack = [];
         this.minStack = [];
     }
@@ -33,7 +34,7 @@ class MinStack {
      * @param {number} val
      * @return {void}
      */
-    push (val, { minStack } = this) {
+    push(val, { minStack } = this) {
         this.stack.push(val);             /* Space O(N) */
 
         const isMinEmpty = !minStack.length;
@@ -45,7 +46,7 @@ class MinStack {
     /**
      * @return {void}
      */
-    pop ({ stack, minStack } = this) {
+    pop({ stack, minStack } = this) {
         const top = stack.pop();          /* Time O(1) */
 
         const canPopMin = top === this.getMin();
@@ -56,7 +57,7 @@ class MinStack {
      * @param {Array}
      * @return {number}
      */
-    top (stack = this.stack) {
+    top(stack = this.stack) {
         return stack.length
             ? stack[stack.length - 1]     /* Time O(1) */
             : null;
@@ -65,7 +66,7 @@ class MinStack {
     /**
      * @return {number}
      */
-    getMin (minStack = this.minStack) {
+    getMin(minStack = this.minStack) {
         return this.top(minStack);       /* Time O(1) */
     }
 }
