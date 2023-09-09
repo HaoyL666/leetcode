@@ -33,3 +33,31 @@ const dfs = (root, min, max) => {
     // check condition 3
     return left && right;
 }
+
+
+
+// solution from hack hour
+function BinaryTree(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+}
+
+const validBST = tree => {
+    const array = [];
+
+    function treeToArray(tree) {
+        if (!node) return;
+        treeToArray(tree.left);
+        array.push(tree.value);
+        treeToArray(tree.right);
+    }
+
+    treeToArray(tree);
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] >= array[i + 1]) return false;
+    }
+    return true;
+
+}
