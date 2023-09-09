@@ -13,19 +13,21 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var diameterOfBinaryTree = function (root) {
-    let max = 0;
+var diameterOfBinaryTree = function (root, max = []) {
+    max[0] = 0;
     dfs(root);
 
     return max;
 };
 
+
+// same as the maxDepth problem, however, we need to keep track of the max diameter
 const dfs = (root) => {
     if (root === null) return -1;
     const left = dfs(root.left);
     const right = dfs(root.right);
 
-    max = Math.max(max, left + right + 2);
+    max[0] = Math.max(max[0], left + right + 2);
 
 
     return Math.max(left, right) + 1;
