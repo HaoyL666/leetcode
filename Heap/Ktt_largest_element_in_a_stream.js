@@ -12,6 +12,9 @@
  * var obj = new KthLargest(k, nums)
  * var param_1 = obj.add(val)
  */
+
+const MinPriorityQueue = require('../Heap/minHeap');
+
 class KthLargest {
     /**
      * @param {number} k
@@ -22,7 +25,8 @@ class KthLargest {
         this.k = k
         this.minHeap = new MinPriorityQueue();
 
-        nums.forEach((num) => this.add(num))
+        // time O(N * log(K)) | space O(K)
+        nums.forEach((num) => this.add(num));
     }
 
     /**

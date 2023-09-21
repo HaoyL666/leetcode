@@ -98,3 +98,5 @@ class MinHeap {
         console.log(heap);
     }
 }
+
+module.exports = MinHeap;
