@@ -5,19 +5,19 @@ class MinHeap {
 
     // Helper Methods
     getLeftChildIndex(parentIndex) {
-        return 2 * parentIndex + 1;
+        return 2 * parentIndex;
     }
     getRightChildIndex(parentIndex) {
-        return 2 * parentIndex + 2;
+        return 2 * parentIndex + 1;
     }
     getParentIndex(childIndex) {
-        return Math.floor((childIndex - 1) / 2);
+        return Math.floor(childIndex / 2);
     }
     hasLeftChild(index) {
-        return this.getLeftChildIndex(index) < this.heap.length;
+        return this.getLeftChildIndex(index) <= this.heap.length;
     }
     hasRightChild(index) {
-        return this.getRightChildIndex(index) < this.heap.length;
+        return this.getRightChildIndex(index) <= this.heap.length;
     }
     hasParent(index) {
         return this.getParentIndex(index) >= 0;
