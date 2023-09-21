@@ -41,21 +41,21 @@ class MinHeap {
     }
 
     peek() {
-        if (this.heap.length === 0) {
+        if (this.heap.length === 0 || this.heap.length === 1) {
             return null;
         }
-        return this.heap[0];
+        return this.heap[1];
     }
 
     // Removing an element will remove the
     // top element with highest priority then
     // heapifyDown will be called
     remove() {
-        if (this.heap.length === 0) {
+        if (this.heap.length === 0 || this.heap.length === 1) {
             return null;
         }
-        const item = this.heap[0];
-        this.heap[0] = this.heap[this.heap.length - 1];
+        const item = this.heap[1];
+        this.heap[1] = this.heap[this.heap.length];
         this.heap.pop();
         this.heapifyDown();
         return item;
@@ -67,7 +67,7 @@ class MinHeap {
     }
 
     heapifyUp() {
-        let index = this.heap.length - 1;
+        let index = this.heap.length;
         while (this.hasParent(index) && this.parent(index) > this.heap[index]) {
             this.swap(this.getParentIndex(index), index);
             index = this.getParentIndex(index);
@@ -75,7 +75,7 @@ class MinHeap {
     }
 
     heapifyDown() {
-        let index = 0;
+        let index = 1;
         while (this.hasLeftChild(index)) {
             let smallerChildIndex = this.getLeftChildIndex(index);
             if (this.hasRightChild(index) && this.rightChild(index) < this.leftChild(index)) {
