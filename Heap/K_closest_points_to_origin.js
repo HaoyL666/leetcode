@@ -49,7 +49,7 @@ var kClosest = function (points, k) {
         if (maxPQ.size() < k) {
             // Fill the max PQ up to k points
             maxPQ.enqueue(point, dist);
-        } else if (dist < maxPQ.front().priority) {
+        } else if (dist < maxPQ.front()) {
             // If the max PQ is full and a closer point is found,
             // discard the farthest point and add this one
             maxPQ.dequeue();

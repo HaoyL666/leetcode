@@ -13,7 +13,7 @@
  * var param_1 = obj.add(val)
  */
 
-const MinPriorityQueue = require('../Heap/minHeap');
+const MinPriorityQueue = require('./minHeap');
 
 class KthLargest {
     /**
