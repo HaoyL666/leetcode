@@ -15,3 +15,19 @@ Output: 5
 // Example 2:
 Input: nums = [3, 2, 3, 1, 2, 4, 5, 5, 6], k = 4
 Output: 4
+
+// use sorting
+/**
+ * https://leetcode.com/problems/kth-largest-element-in-an-array/
+ * Time O(N * log(N)) | Space O(K)
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var findKthLargest = function (nums, k) {
+    return nums
+        .sort((a, b) => a - b)
+        .reverse()
+        .slice(k - 1)
+        .shift()
+};
