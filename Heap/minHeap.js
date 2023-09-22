@@ -1,6 +1,7 @@
 class MinHeap {
     constructor() {
-        this.heap = [];
+        this.heap = [null];
+        this.size = this.heap.length - 1;
     }
 
     // Helper Methods
@@ -13,15 +14,17 @@ class MinHeap {
     getParentIndex(childIndex) {
         return Math.floor(childIndex / 2);
     }
+
     hasLeftChild(index) {
-        return this.getLeftChildIndex(index) <= this.heap.length;
+        return this.getLeftChildIndex(index) <= this.size();
     }
     hasRightChild(index) {
-        return this.getRightChildIndex(index) <= this.heap.length;
+        return this.getRightChildIndex(index) <= this.size();
     }
     hasParent(index) {
-        return this.getParentIndex(index) >= 0;
+        return this.getParentIndex(index) > 0;
     }
+
     leftChild(index) {
         return this.heap[this.getLeftChildIndex(index)];
     }
@@ -40,7 +43,7 @@ class MinHeap {
         this.heap[indexTwo] = temp;
     }
 
-    peek() {
+    front() {
         if (this.heap.length === 0 || this.heap.length === 1) {
             return null;
         }
@@ -50,24 +53,25 @@ class MinHeap {
     // Removing an element will remove the
     // top element with highest priority then
     // heapifyDown will be called
-    remove() {
+    dequeue() {
         if (this.heap.length === 0 || this.heap.length === 1) {
             return null;
         }
         const item = this.heap[1];
-        this.heap[1] = this.heap[this.heap.length];
+        this.heap[1] = this.heap[this.size()];
         this.heap.pop();
         this.heapifyDown();
         return item;
     }
 
-    add(item) {
+    // Adding an element will add the element
+    enqueue(item) {
         this.heap.push(item);
         this.heapifyUp();
     }
 
     heapifyUp() {
-        let index = this.heap.length;
+        let index = this.size();
         while (this.hasParent(index) && this.parent(index) > this.heap[index]) {
             this.swap(this.getParentIndex(index), index);
             index = this.getParentIndex(index);
