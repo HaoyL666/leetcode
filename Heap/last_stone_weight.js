@@ -36,6 +36,7 @@ Output: 1
  */
 var lastStoneWeight = function (stones) {
     const maxHeap = getMaxHeap(stones)
+    // we could also use a minheap by adding the negate of each stone
 
     shrink(maxHeap)
 
